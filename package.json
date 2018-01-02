@@ -14,7 +14,12 @@
     "lint": "eslint src webpack.config.babel.js --ext .js,.jsx",
     "test": "yarn lint && flow && jest --coverage",
     "precommit": "yarn test",
-    "prepush": "yarn test && yarn prod:build"
+    "prepush": "yarn test && yarn prod:build",
+    "heroku-postbuild": "yarn prod:build"
+  },
+  "engines": {
+    "node": "7.x",
+    "yarn": "0.20.3"
   },
   "dependencies": {
     "babel-polyfill": "^6.23.0",
