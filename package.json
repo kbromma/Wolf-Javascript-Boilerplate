@@ -1,35 +1,38 @@
 {
-  "name": "your-project",
+  "name": "javscript-boiler",
   "version": "1.0.0",
   "license": "MIT",
   "browserslist": [
     "> 1%"
   ],
   "scripts": {
-    "start": "yarn dev:start",
-    "dev:start": "nodemon -e js,jsx --ignore lib --ignore dist --exec babel-node src/server",
-    "dev:wds": "webpack-dev-server --progress",
-    "prod:build": "rimraf lib dist && babel src -d lib --ignore .test.js && cross-env NODE_ENV=production webpack -p --progress",
+    "ex": "babel-node src/scripts/start",
+    "start": "babel-node src/scripts/start",
+    "prod:build": "rimraf lib dist && babel src -d lib --ignore .test.js && cross-env NODE_ENV=production webpack -p --progress && yarn prod:start",
     "prod:start": "heroku local",
-    "lint": "eslint src webpack.config.babel.js --ext .js,.jsx",
+    "lint": "eslint src config --ext .js,.jsx",
     "test": "yarn lint && flow && jest --coverage",
     "precommit": "yarn test",
     "prepush": "yarn test && yarn prod:build",
     "heroku-postbuild": "yarn prod:build"
   },
   "engines": {
-    "node": "9.x",
+    "node": "8.x",
     "yarn": "1.x"
   },
   "dependencies": {
+    "address": "^1.0.3",
     "babel-polyfill": "^6.23.0",
     "bootstrap": "4.0.0-alpha.6",
+    "chalk": "^2.3.0",
     "compression": "^1.6.2",
     "express": "^4.15.2",
     "immutable": "4.0.0-rc.2",
     "isomorphic-fetch": "^2.2.1",
     "jquery": "^3.2.1",
+    "nodemon": "^1.11.0",
     "react": "^15.4.2",
+    "react-dev-utils": "^5.0.0",
     "react-dom": "^15.4.2",
     "react-helmet": "^4.0.0",
     "react-hot-loader": "^3.0.0-beta.6",
@@ -42,7 +45,9 @@
     "redux-thunk": "^2.2.0",
     "socket.io": "^2.0.4",
     "socket.io-client": "^2.0.4",
-    "tether": "^1.4.3"
+    "tether": "^1.4.3",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.1"
   },
   "devDependencies": {
     "babel-cli": "^6.24.0",
@@ -67,10 +72,7 @@
     "flow-bin": "^0.41.0",
     "husky": "^0.13.2",
     "jest": "^19.0.2",
-    "nodemon": "^1.11.0",
     "redux-mock-store": "^1.2.2",
-    "rimraf": "^2.6.1",
-    "webpack": "^2.2.1",
-    "webpack-dev-server": "^2.4.1"
+    "rimraf": "^2.6.1"
   }
 }

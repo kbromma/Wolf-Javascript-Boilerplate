@@ -2,38 +2,21 @@
 
 import 'babel-polyfill'
 
-import Immutable from 'immutable'
-import React from 'react'
 import ReactDOM from 'react-dom'
-import { AppContainer } from 'react-hot-loader'
-import { Provider } from 'react-redux'
-import { BrowserRouter } from 'react-router-dom'
-import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
-import thunkMiddleware from 'redux-thunk'
 import $ from 'jquery'
 import Tether from 'tether'
 
 
 import App from '../shared/app'
-import helloReducer from '../shared/reducer/hello'
-import { APP_CONTAINER_SELECTOR, JSS_SSR_SELECTOR } from '../shared/config'
-import { isProd } from '../shared/util'
-import setUpSocket from './socket'
+import { APP_CONTAINER_SELECTOR, JSS_SSR_SELECTOR } from '../../config/config'
+import setUpSocket from './init/init-socket'
+import store from './init/init-store'
+import wrapApp from './init/init-app'
 
 window.jQuery = $
 window.Tether = Tether
 require('bootstrap')
 
-
-/* eslint-disable no-underscore-dangle */
-const composeEnhancers = (isProd ? null : window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose
-const preloadedState = window.__PRELOADED_STATE__
-/* eslint-enable no-underscore-dangle */
-
-const store = createStore(combineReducers(
-  { hello: helloReducer }),
-  { hello: Immutable.fromJS(preloadedState.hello) },
-  composeEnhancers(applyMiddleware(thunkMiddleware)))
 
 const rootEl = document.querySelector(APP_CONTAINER_SELECTOR)
 
@@ -41,17 +24,9 @@ if (!(rootEl instanceof Element)) {
   throw new Error('invalid type')
 }
 
-const wrapApp = (AppComponent, reduxStore) =>
-  <Provider store={reduxStore}>
-    <BrowserRouter>
-      <AppContainer>
-        <AppComponent />
-      </AppContainer>
-    </BrowserRouter>
-  </Provider>
-
 ReactDOM.render(wrapApp(App, store), rootEl)
 
+// For hot reloading
 if (module.hot) {
   // flow-disable-next-line
   module.hot.accept('../shared/app', () => {
@@ -61,8 +36,10 @@ if (module.hot) {
   })
 }
 
+// Allows jss from server
 const jssServerSide = document.querySelector(JSS_SSR_SELECTOR)
 // flow-disable-next-line
 jssServerSide.parentNode.removeChild(jssServerSide)
 
+// Set up the sockets
 setUpSocket(store)

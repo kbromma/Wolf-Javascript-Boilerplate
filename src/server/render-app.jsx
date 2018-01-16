@@ -1,5 +1,7 @@
 // @flow
 
+// This never really has to change unless you add some more middleware.
+
 import React from 'react'
 import ReactDOMServer from 'react-dom/server'
 import Helmet from 'react-helmet'
@@ -10,7 +12,7 @@ import { SheetsRegistry, JssProvider } from 'react-jss'
 import initStore from './init-store'
 import App from './../shared/app'
 import { isProd } from '../shared/util'
-import { APP_CONTAINER_CLASS, JSS_SSR_CLASS, STATIC_PATH, WDS_PORT } from '../shared/config'
+import { APP_CONTAINER_CLASS, JSS_SSR_CLASS, STATIC_PATH, WDS_PORT } from '../../config/config'
 
 const renderApp = (location: string, plainPartialState: ?Object, routerContext: ?Object = {}) => {
   const store = initStore(plainPartialState)

@@ -1,19 +1,21 @@
 // @flow
 
-import path from 'path'
 import webpack from 'webpack'
 
-import { WDS_PORT } from './src/shared/config'
-import { isProd } from './src/shared/util'
+import { WDS_PORT } from './config'
+import { isProd } from '../src/shared/util'
+import paths from './paths'
 
 export default {
   entry: [
+    `webpack-dev-server/client?http://localhost:${WDS_PORT}`,
+    'webpack/hot/dev-server',
     'react-hot-loader/patch',
     './src/client',
   ],
   output: {
     filename: 'js/bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+    path: paths.distSrc,
     publicPath: isProd ? '/static/' : `http://localhost:${WDS_PORT}/dist/`,
   },
   module: {

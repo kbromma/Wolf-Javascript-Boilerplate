@@ -1,5 +1,7 @@
 // @flow
 
+// Add different routes and their renderings here to ensure SSR for SEO
+
 import {
   homePage,
   helloPage,

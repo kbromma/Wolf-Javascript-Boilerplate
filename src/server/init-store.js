@@ -6,6 +6,8 @@ import thunkMiddleware from 'redux-thunk'
 
 import helloReducer from '../shared/reducer/hello'
 
+// Change this to change the initial store
+
 const initStore = (plainPartialState: ?Object) => {
   const preloadedState = plainPartialState ? {} : undefined
 

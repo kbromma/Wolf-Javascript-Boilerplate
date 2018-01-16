@@ -1,4 +1,7 @@
 // @flow
+/*
+* Does the back end work for loading data, sets initial state of a rendered page.
+*/
 
 export const homePage = () => null
 

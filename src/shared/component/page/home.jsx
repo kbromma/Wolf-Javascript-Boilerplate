@@ -5,7 +5,7 @@ import Helmet from 'react-helmet'
 import injectSheet from 'react-jss'
 
 import ModalExample from '../modal-example'
-import { APP_NAME } from '../../config'
+import { APP_NAME } from '../../../../config/config'
 
 const styles = {
   hoverMe: {
@@ -53,7 +53,7 @@ const HomePage = ({ classes }: { classes: Object }) =>
         </div>
         <div className="col-md-4 mb-4">
           <h3 className="mb-3">Websockets</h3>
-          <p>Open your browser console.</p>
+          <p>Open your browser console.d</p>
         </div>
       </div>
     </div>

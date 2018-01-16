@@ -13,7 +13,7 @@ const NotFoundPage = () =>
     <div className="row">
       <div className="col-12">
         <h1>{title}</h1>
-        <div><Link to={HOME_PAGE_ROUTE}>Go to the homepage</Link>.</div>
+        <div><Link to={HOME_PAGE_ROUTE}>Go to the homepage.. or not</Link>.</div>
       </div>
     </div>
   </div>
