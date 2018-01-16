@@ -1,6 +1,6 @@
 // @flow
 
-const config = require('./webpack.config.babel')
+const config = require('../webpack.config.babel')
 
 const host = process.env.HOST || '0.0.0.0'
 const protocol = process.env.HTTPS === 'true' ? 'https' : 'http'

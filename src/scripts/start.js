@@ -12,7 +12,7 @@ import openBrowser from 'react-dev-utils/openBrowser'
 
 import paths from '../../config/paths'
 import prepareUrls from './config/prepareUrls'
-import webpackConfig from '../../config/webpack.config.babel'
+import webpackConfig from '../../webpack.config.babel'
 import createDevServerConfig from '../../config/webpackDevServer.config'
 import createCompiler from './config/webpackCompiler.config'
 import { WEB_PORT, WDS_PORT } from '../../config/config'

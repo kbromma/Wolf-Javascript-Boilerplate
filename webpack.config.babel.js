@@ -2,9 +2,9 @@
 
 import webpack from 'webpack'
 
-import { WDS_PORT } from './config'
-import { isProd } from '../src/shared/util'
-import paths from './paths'
+import { WDS_PORT } from './config/config'
+import { isProd } from './src/shared/util'
+import paths from './config/paths'
 
 export default {
   entry: [

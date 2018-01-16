@@ -8,7 +8,7 @@
   "scripts": {
     "ex": "babel-node src/scripts/start",
     "start": "babel-node src/scripts/start",
-    "prod:build": "rimraf lib dist && babel src -d lib --ignore .test.js && cross-env NODE_ENV=production webpack -p --progress && yarn prod:start",
+    "prod:build": "rimraf lib dist && babel src -d lib --ignore .test.js && cross-env NODE_ENV=production webpack",
     "prod:start": "heroku local",
     "lint": "eslint src config --ext .js,.jsx",
     "test": "yarn lint && flow && jest --coverage",
