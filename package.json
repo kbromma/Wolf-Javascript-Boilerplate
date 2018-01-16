@@ -17,8 +17,8 @@
     "heroku-postbuild": "yarn prod:build"
   },
   "engines": {
-    "node": "8.x",
-    "yarn": "1.x"
+    "node": ">8",
+    "yarn": ">1"
   },
   "dependencies": {
     "address": "^1.0.3",
