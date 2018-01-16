@@ -5,6 +5,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunkMiddleware from 'redux-thunk'
 
 import helloReducer from '../shared/reducer/hello'
+import dbReducer from '../shared/reducer/db'
 
 // Change this to change the initial store
 
@@ -17,7 +18,13 @@ const initStore = (plainPartialState: ?Object) => {
       .merge(Immutable.fromJS(plainPartialState.hello))
   }
 
-  return createStore(combineReducers({ hello: helloReducer }),
+  if (plainPartialState && plainPartialState.dbTest) {
+    // flow-disable-next-line
+    preloadedState.hello = helloReducer(undefined, {})
+      .merge(Immutable.fromJS(plainPartialState.dbTest))
+  }
+
+  return createStore(combineReducers({ hello: helloReducer, cat: dbReducer }),
     preloadedState, applyMiddleware(thunkMiddleware))
 }
 

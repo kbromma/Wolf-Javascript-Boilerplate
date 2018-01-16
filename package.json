@@ -17,12 +17,13 @@
     "heroku-postbuild": "yarn prod:build"
   },
   "engines": {
-    "node": ">8",
+    "node": ">=8",
     "yarn": "1.x"
   },
   "dependencies": {
     "address": "^1.0.3",
     "babel-polyfill": "^6.23.0",
+    "bluebird": "^3.5.1",
     "bootstrap": "4.0.0-alpha.6",
     "chalk": "^2.3.0",
     "compression": "^1.6.2",
@@ -45,6 +46,7 @@
     "redux-thunk": "^2.2.0",
     "socket.io": "^2.0.4",
     "socket.io-client": "^2.0.4",
+    "sqlite": "^2.9.1",
     "tether": "^1.4.3",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.4.1"

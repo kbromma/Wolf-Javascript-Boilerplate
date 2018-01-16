@@ -10,10 +10,12 @@ import HomePage from './component/page/home'
 import HelloPage from './component/page/hello'
 import HelloAsyncPage from './component/page/hello-async'
 import NotFoundPage from './component/page/not-found'
+import DbTest from './component/page/db-test'
 import {
   HOME_PAGE_ROUTE,
   HELLO_PAGE_ROUTE,
   HELLO_ASYNC_PAGE_ROUTE,
+  DB_PAGE_ROUTE,
 } from './routes'
 
 const App = () =>
@@ -24,6 +26,7 @@ const App = () =>
       <Route exact path={HOME_PAGE_ROUTE} render={() => <HomePage />} />
       <Route path={HELLO_PAGE_ROUTE} render={() => <HelloPage />} />
       <Route path={HELLO_ASYNC_PAGE_ROUTE} render={() => <HelloAsyncPage />} />
+      <Route path={DB_PAGE_ROUTE} render={() => <DbTest />} />
       <Route component={NotFoundPage} />
     </Switch>
   </div>

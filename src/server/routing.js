@@ -2,23 +2,29 @@
 
 // Add different routes and their renderings here to ensure SSR for SEO
 
+import sqlite from 'sqlite'
+
 import {
   homePage,
   helloPage,
   helloAsyncPage,
   helloEndpoint,
+  dbTestPoint,
+  dbPage,
 } from './controller'
 
 import {
   HOME_PAGE_ROUTE,
   HELLO_PAGE_ROUTE,
   HELLO_ASYNC_PAGE_ROUTE,
+  DB_PAGE_ROUTE,
   helloEndpointRoute,
+  dbPageRoute,
 } from '../shared/routes'
 
 import renderApp from './render-app'
 
-export default (app: Object) => {
+export default (app: Object, dbPromise: Promise<sqlite.Database>) => {
   app.get(HOME_PAGE_ROUTE, (req, res) => {
     res.send(renderApp(req.url, homePage()))
   })
@@ -29,6 +35,17 @@ export default (app: Object) => {
 
   app.get(HELLO_ASYNC_PAGE_ROUTE, (req, res) => {
     res.send(renderApp(req.url, helloAsyncPage()))
+  })
+
+  app.get(DB_PAGE_ROUTE, (req, res) => {
+    res.send(renderApp(req.url, dbPage()))
+  })
+
+  app.get(dbPageRoute(), (req, res) => {
+    dbTestPoint(dbPromise)
+    .then((data) => {
+      res.json(data)
+    })
   })
 
   app.get(helloEndpointRoute(), (req, res) => {

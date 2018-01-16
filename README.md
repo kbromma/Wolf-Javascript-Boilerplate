@@ -4,9 +4,12 @@
 # My personal javascript stack
 
 This is a javascript stack as introduced through the tutorial [here](https://github.com/verekia/js-stack-from-scratch). 
-There will be a few edits to make it my own, eventually.
+I have also taken some aspects from [create-react-app](https://github.com/facebookincubator/create-react-app) and their subsequent package react-dev-utils, in order to improve functionality.
 
 # To add:
 
--Database
+- Mongoose Database
+- Build/Production .js Script
+- Test .js Script
+
 
