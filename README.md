@@ -1,5 +1,5 @@
-[![Build Status](https://img.shields.io/travis/kbromma/personal-javascript-stack.svg?style=flat-square)](https://travis-ci.org/kbromma/personal-javascript-stack)
-[![Coverage Status](https://img.shields.io/coveralls/kbromma/personal-javascript-stack.svg?style=flat-square)](https://coveralls.io/github/kbromma/personal-javascript-stack?branch=master)
+[![Build Status](https://img.shields.io/travis/kbromma/Wolf-Javascript-Boilerplate.svg?style=flat-square)](https://travis-ci.org/kbromma/personal-javascript-stack)
+[![Coverage Status](https://img.shields.io/coveralls/kbromma/Wolf-Javascript-Boilerplate.svg?style=flat-square)](https://coveralls.io/github/kbromma/personal-javascript-stack?branch=master)
 
 # Extended javascript full stack
 
@@ -30,7 +30,7 @@ I have currently added a few extra features to improve functionality for my uses
 
 Clone this repository using 
 
-`git clone https://github.com/kbromma/personal-javascript-stack.git`
+`git clone https://github.com/kbromma/Wolf-Javascript-Boilerplate.git`
 
 Run `yarn` and you should be good to go. You can edit package.json however you like and the config/config.js file to change ports and app name/other options.
 
