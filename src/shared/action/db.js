@@ -26,7 +26,7 @@ export const testDbAsync = (cat: any) => (dispatch: Function) => {
       if (!data.dbTest) throw Error('No message received')
       dispatch(testDbSuccess(data.dbTest.name))
     })
-    .catch((err) => {
+    .catch(() => {
       dispatch(testDbFailure())
     })
 }
